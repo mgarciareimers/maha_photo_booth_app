@@ -17,7 +17,7 @@ class AppLocalizations {
   // Static member to have a simple access to the delegate from the MaterialApp.
   static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
-  late Map<String, String> _localizedStrings;
+  Map<String, String>? _localizedStrings;
 
   Future<bool> load() async {
     String jsonString = await rootBundle.loadString('lang/${locale.languageCode}.json');
@@ -33,7 +33,7 @@ class AppLocalizations {
 
   // Method that will be called from every widget which needs a localized text.
   String? translate(String key) {
-    return this._localizedStrings[key];
+    return this._localizedStrings![key];
   }
 }
 
@@ -46,7 +46,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
 
   @override
   bool isSupported(Locale locale) {
-    return ['en', 'es'].contains(locale.languageCode); // Include all supported language codes.
+    return ['en'].contains(locale.languageCode); // Include all supported language codes.
   }
 
   @override

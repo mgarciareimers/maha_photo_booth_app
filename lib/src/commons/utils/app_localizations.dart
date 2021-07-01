@@ -32,8 +32,15 @@ class AppLocalizations {
   }
 
   // Method that will be called from every widget which needs a localized text.
-  String? translate(String key) {
-    return this._localizedStrings![key];
+  String translate(String key) {
+    String value = '';
+
+
+    if (this._localizedStrings != null &&  this._localizedStrings![key] != null) {
+      value = '${this._localizedStrings![key] }';
+    }
+
+    return value;
   }
 }
 

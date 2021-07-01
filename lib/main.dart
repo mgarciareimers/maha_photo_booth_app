@@ -23,6 +23,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: Strings.APP_NAME,
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primaryColor: Colors.deepPurpleAccent,
+        ),
         initialRoute: Routes.HOME,
         routes: Routes.getRoutes(),
         onUnknownRoute: (settings) => MaterialPageRoute(settings: settings, builder: (context) => HomePage()),

@@ -25,15 +25,18 @@ class DialogPhotoName extends StatelessWidget {
   Widget _createCupertinoPhotoNameDialog(BuildContext context) {
     return CupertinoAlertDialog(
         title: Text(AppLocalizations.of(context)!.translate('photo_name')),
-        content: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(AppLocalizations.of(context)!.translate('photo_name_text')),
-              SizedBox(height: Sizes.MARGIN_16),
-              TextFieldCustom(hint: Strings.EMPTY_STRING, onValueChanged: this.onPhotoNameChanged),
-            ],
+        content: Material(
+          color: Colors.transparent,
+          child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(AppLocalizations.of(context)!.translate('photo_name_text')),
+                SizedBox(height: Sizes.MARGIN_16),
+                TextFieldCustom(hint: Strings.EMPTY_STRING, onValueChanged: this.onPhotoNameChanged),
+              ],
+            ),
           ),
         ),
         actions: <Widget>[

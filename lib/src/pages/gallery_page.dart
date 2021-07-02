@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Database.
@@ -14,6 +17,7 @@ import 'package:maha_photo_booth_app/src/commons/utils/utils.dart';
 // Constants.
 import 'package:maha_photo_booth_app/src/commons/constants/sizes.dart';
 import 'package:maha_photo_booth_app/src/commons/constants/strings.dart';
+import 'package:maha_photo_booth_app/src/pages/photo_page.dart';
 
 // Widgets.
 import 'package:maha_photo_booth_app/src/widgets/item_list_photo.dart';
@@ -138,6 +142,11 @@ class _GalleryPageState extends State<GalleryPage> {
 
   // Method that is called when the user clicks the item.
   void _onItemClicked(PhotoModel photo) {
-    Navigator.pushNamed(this.context, Routes.PHOTO, arguments: { photo: photo });
+    Navigator.push(this.context,
+      Platform.isIOS ?
+        CupertinoPageRoute(builder: (BuildContext context) => PhotoPage(photo: photo))
+          :
+        MaterialPageRoute(builder: (BuildContext context) => PhotoPage(photo: photo))
+    );
   }
 }

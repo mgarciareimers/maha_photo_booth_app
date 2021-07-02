@@ -47,7 +47,7 @@ class DatabaseHelper {
   Future close() async => _database!.close();
 
   // Photo.
-  Future<List<PhotoModel>> getPhotos() async => await PhotoDatabaseService.getAll(_database!);
+  Future<List<PhotoModel>?> getPhotos() async => await PhotoDatabaseService.getAll(_database!);
   Future<PhotoModel> insertPhoto(PhotoModel photo) async => await PhotoDatabaseService.insert(_database!, photo);
   Future<int> updatePhotoById(PhotoModel photo) async => await PhotoDatabaseService.update(_database!, photo);
   Future<int> deletePhotoById(int id) async => await PhotoDatabaseService.delete(_database!, id);

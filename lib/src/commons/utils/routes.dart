@@ -14,7 +14,7 @@ class Routes {
     return {
       GALLERY: (BuildContext context) => GalleryPage(),
       HOME: (BuildContext context) => HomePage(),
-      PHOTO: (BuildContext context) => PhotoPage(),
+      PHOTO: (BuildContext context) => PhotoPage(photo: null),
     };
   }
 }

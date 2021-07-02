@@ -19,12 +19,13 @@ class PhotoDatabaseService {
   }
 
   // Get all.
-  static Future<List<PhotoModel>> getAll(Database database) async {
+  static Future<List<PhotoModel>?> getAll(Database database) async {
     List<Map<String, dynamic>> results = await database.query(Fields.PHOTOS, orderBy: '${ Fields.DATE } DESC');
-
-    List<PhotoModel> photos = [];
+    List<PhotoModel>? photos;
 
     if (results.length > 0) {
+      photos = [];
+
       for (Map<String, dynamic> element in results) {
         PhotoModel photo =  PhotoModel.fromJson(element);
 
@@ -40,7 +41,7 @@ class PhotoDatabaseService {
   // Insert.
   static Future<PhotoModel> insert(Database database, PhotoModel photo) async {
     photo.date = new DateTime.now();
-    photo.id = await database.insert(Fields.PHOTOS, photo.toJson());
+    photo.id = await database.insert(Fields.PHOTOS, photo.toInsertJson());
 
     return photo;
   }

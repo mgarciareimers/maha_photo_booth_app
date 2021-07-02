@@ -25,11 +25,17 @@ class PhotoModel {
     id: json[Fields.ID],
     name: json[Fields.NAME],
     photo: json[Fields.PHOTO],
-    date: json[Fields.DATE],
+    date: json[Fields.DATE] == null ? null : DateTime.parse(json[Fields.DATE]),
   );
 
   Map<String, dynamic> toJson() => {
     Fields.ID: this.id,
+    Fields.NAME: this.name,
+    Fields.PHOTO: this.photo,
+    Fields.DATE: this.date.toString(),
+  };
+
+  Map<String, dynamic> toInsertJson() => {
     Fields.NAME: this.name,
     Fields.PHOTO: this.photo,
     Fields.DATE: this.date.toString(),

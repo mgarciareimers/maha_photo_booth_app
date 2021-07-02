@@ -1,14 +1,19 @@
 {
   "cancel": "Cancel",
   "continue": "Continue",
+  "deletingPhoto": "Deleting photo",
   "ok": "Ok",
   "photo_name": "Photo Name",
   "photo_name_text": "Type a name for the photo:",
+  "photos_not_found": "No photos have been found.",
+  "retry": "Retry",
   "success_insert_photo": "The photo has been successfully saved!",
   "take_a_photo": "Take a Photo",
   "view_photos": "View Photos",
 
   "error" : "Error",
-  "genericErrorCameraOpening" : "An error occurred while opening the camera.",
-  "photoNameValidationError" : "Please, type a name for the photo you took."
+  "deletePhotoError" : "An error occurred while deleting the photo.",
+  "generic_error_camera_opening" : "An error occurred while opening the camera.",
+  "photo_name_validation_error" : "Please, type a name for the photo you took.",
+  "photos_fetch_error" : "An error occurred while fetching the photos."
 }

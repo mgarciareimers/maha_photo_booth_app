@@ -2,7 +2,13 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+// Constants.
 import 'package:maha_photo_booth_app/src/commons/constants/sizes.dart';
+import 'package:maha_photo_booth_app/src/commons/constants/strings.dart';
+
+// Widgets.
+import 'package:maha_photo_booth_app/src/widgets/progress_bar.dart';
 
 class Utils {
   // Method that shows an alert dialog.
@@ -65,5 +71,50 @@ class Utils {
         );
       },
     );
+  }
+
+  // Method that shows the progressbar alert dialog.
+  static void showProgressBarAlertDialog(BuildContext context, String text) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return WillPopScope(
+          onWillPop: () async => false,
+          child: ProgressBar(text: text, color: Theme.of(context).primaryColor)
+        );
+      },
+    );
+  }
+
+  // Method that adds a character to the left and/or right of the input string in case of need.
+  static String padCharacterLeftRight(int finalLength, String character, String string, bool left, bool right) {
+    if (!left && !right) {
+      return string;
+    }
+
+    while(string.length < finalLength) {
+      if (left) {
+        string = '$character$string';
+      }
+
+      if (right && string.length < finalLength) {
+        string = '$string$character';
+      }
+    }
+
+    return string;
+  }
+
+  // Method that gets a datetime string from a date time.
+  static String getDateTimeString(DateTime dateTime) {
+    final String year = dateTime.year.toString();
+    final String month = padCharacterLeftRight(2, Strings.ZERO, dateTime.month.toString(), true, false);
+    final String day = padCharacterLeftRight(2, Strings.ZERO, dateTime.day.toString(), true, false);
+    final String hour = padCharacterLeftRight(2, Strings.ZERO, dateTime.hour.toString(), true, false);
+    final String minutes = padCharacterLeftRight(2, Strings.ZERO, dateTime.minute.toString(), true, false);
+    final String seconds = padCharacterLeftRight(2, Strings.ZERO, dateTime.second.toString(), true, false);
+
+    return '$month/$day/$year $hour:$minutes:$seconds';
   }
 }

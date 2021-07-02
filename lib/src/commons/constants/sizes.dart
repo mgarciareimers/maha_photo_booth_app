@@ -19,5 +19,7 @@ class Sizes {
   static const double FONT_22 = 22;
   static const double FONT_24 = 24;
 
-  static const double INPUT_HEIGHT = 24;
+  static const double BORDER_RADIUS = 8;
+  static const double INPUT_BORDER_SIZE = 0.5;
+  static const double INPUT_HEIGHT = 40;
 }

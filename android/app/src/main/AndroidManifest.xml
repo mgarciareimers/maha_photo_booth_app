@@ -1,7 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.maha_photo_booth_app">
+
+
+
    <application
-        android:label="maha_photo_booth_app"
+        android:label="Photo Booth App"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
